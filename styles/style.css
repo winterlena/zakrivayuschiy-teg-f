@@ -276,10 +276,6 @@
   mix-blend-mode: difference;
 }
 
-dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.75);
-}
-
 .dialog {
   font-size: 14px;
   font-family: var(--aсcent-font);
@@ -289,6 +285,10 @@ dialog::backdrop {
   padding: 30px;
   gap: 30px;
   display: grid;
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
 }
 
 .dialog:not([open]) {
