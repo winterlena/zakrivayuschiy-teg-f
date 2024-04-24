@@ -86,7 +86,6 @@
   display: block;
   width: 0%;
   height: 2px;
-  width: 0%;
   background-color: var(--accent-color);
   transition: width 0.3s ease;
 }
@@ -324,10 +323,6 @@ dialog::backdrop {
 
 .card__img-shock {
   filter: hue-rotate(180deg);
-}
-
-.card__img-negation {
-  filter: brightness(3);
 }
 
 .card__img-negation {
