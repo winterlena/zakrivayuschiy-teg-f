@@ -72,7 +72,6 @@
   background-color: transparent;
   text-transform: uppercase;
   color: var(--accent-color);
-  
 }
 
 .theme-menu__button::before {
