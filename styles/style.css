@@ -243,12 +243,6 @@
   color: var(--button__text-color);
 }
 
-.floppy {
-  width: 28px;
-  height: 28px;
-  mix-blend-mode: difference;
-}
-
 .card__save-button {
   display: flex;
   justify-content: center;
@@ -277,10 +271,11 @@
   outline-offset: -1px;
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  font-family: var(--main-font);
+.card__save-button .floppy {
+  width: 21px;
+  height: 21px;
+  fill: var(--button__text-color);
+  mix-blend-mode: difference;
 }
 
 dialog::backdrop {
