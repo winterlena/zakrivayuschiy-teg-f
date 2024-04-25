@@ -18,7 +18,6 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--main-font), sans-serif;
-  font-variation-settings: 'wght' var(--font-weight-conten);
   color: var(--accent-color);
   background-color: var(--background-color);
   background-size: cover;
@@ -30,6 +29,7 @@
 
 .body {
   background-image: var(--background-image);
+  font-variation-settings: 'wght' var(--font-weight-content);
 }
 
 .header {
@@ -59,55 +59,55 @@
   margin-block-end: 25px;
 }
 
+.header__theme-menu {
+  display: grid;
+  justify-items: center;
+  font-size: 14px;
+}
+
 .theme-menu__list {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  padding-inline-start: 20px;
+  display: grid;
+  gap: 11px;
 }
 
 .theme-menu__button {
+  position: relative;
   border: none;
   background-color: transparent;
   text-transform: uppercase;
+  padding-inline-start: 25px;
   color: var(--accent-color);
-}
-
-.theme-menu__button::before {
-  content: "▶";
-  position: absolute;
-  animation: arrow_element 0.5s infinite ease-in-out alternate-reverse;
-  inset-inline-start: -20px;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
 }
 
 .theme-menu__button::after {
   content: '';
   display: block;
-  width: 0%;
-  height: 2px;
+  position: absolute;
+  left: 0;
+  block-size: 2px;
+  inset-inline-start: 25px;
   background-color: var(--accent-color);
-  transition: width 0.3s ease;
+  opacity: 0.6;
 }
 
 .theme-menu__button:hover {
   opacity: 0.6;
-  cursor: pointer;
-  transition: width 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button:focus {
   outline: none;
+  opacity: 0.6;
 }
 
 .theme-menu__button:focus-visible {
   opacity: 0.6;
-  transition: width 0.3s ease;
 }
 
 .theme-menu__button:focus-visible::after {
-  width: 100%;
-  opacity: 0.6;
+  animation: underline 0.3s ease forwards;
 }
 
 .theme-menu__button:active {
@@ -115,11 +115,19 @@
 }
 
 .theme-menu__button:disabled {
-  position: relative;
   opacity: 0.6;
   pointer-events: none;
 }
 
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  display: block;
+  opacity: 0.6;
+  left: 5px;
+  top: 0;
+  animation: arrow_element infinite 0.5s ease-in-out alternate;
+}
 .content {
   display: flex;
   flex-direction: column;
@@ -130,7 +138,8 @@
 
 .card__item {
   background-color: var(--background-color);
-  width: min(698px, 99%);
+  /* width: min(696px, 99%); */
+  max-inline-size: 696px;
   border: 2px solid var(--accent-color);
   margin: 0 auto 50px;
 }
@@ -138,6 +147,7 @@
 .card__title {
   font-size: 18px;
   font-family: var(--main-font), sans-serif;
+  font-variation-settings: 'wght' var(--font-weight-title);
   align-items: self-start;
   padding: 5px 10px;
 }
@@ -155,8 +165,8 @@
   mix-blend-mode: hard-light;
   position: absolute;
   z-index: 1;
-  top: 25px;
-  right: 25px;
+  top: 23px;
+  right: clamp(11px, calc(11px + 1vw), 23px);
   text-shadow:
     -1px 0 var(--color-shadow), 
     0 1px var(--color-shadow), 
@@ -180,17 +190,21 @@
   aspect-ratio: 1/1;
 }
 
+.container-card {
+  display: grid;
+  gap: 27px;
+  padding: 25px;
+}
+
 .card__text {
-  margin: 25px;
+  line-height: 116.7%;
+  font-size: 18px;
 }
 
 .card__button {
   display: flex;
-  align-items: center;
   justify-content: end;
   gap: 6px;
-  margin-inline-end: 25px;
-  margin-block-end: 25px;
 }
 
 .button {
@@ -239,12 +253,13 @@
 .button__text {
   mix-blend-mode: difference;
   color: var(--button__text-color);
+  text-transform: uppercase;
 }
 
 .card__save-button {
   display: flex;
-  justify-content: center;
   align-items: center;
+  text-transform: none;
   background: var(--background-color);
   margin-bottom: 103px;
   padding: 15px 20px;
@@ -255,6 +270,9 @@
   background: transparent;
   border: none;
   cursor: pointer;
+  display: grid;
+  z-index: 3;
+  align-items: center;
   padding: 0;
   width: 39px;
   height: 36px;
@@ -321,42 +339,44 @@ dialog::backdrop {
   padding: 10px 0;
 }
 
-.card__img-shock {
+.card__img-hue-rotate {
   filter: hue-rotate(180deg);
 }
 
-.card__img-negation {
+.card__img-blur {
   filter: blur(10px);
 }
 
-.card__img-deal {
+.card__img-contrast {
   filter: contrast(150%);
 }
 
-.card__img-guilt {
+.card__img-invert {
   filter: invert(80%);
 }
 
-.card__img-anger {
+.card__img-sepia {
   filter: sepia(40%);
 }
 
-.card__img-depression {
+.card__img-grayscale {
   filter: grayscale(80%);
 }
 
-.card__img-adoption {
+.card__img-sepia-contrast-brightness {
   filter: sepia(1) contrast(2) brightness(200%);
 }
 
-@media (width <= 376px) {
+@media (width <= 375px) {
   .card__save-button {
-    display: flex;
+    display: grid;
     flex-direction: column;
+    justify-items: center;
     justify-content: center;
+    gap: 8px;
   }
-  .floppy {
-    width: 21px;
-    height: 21px;
+  .card__save-button .floppy {
+    width: 28px;
+    height: 28px;
   }
 }

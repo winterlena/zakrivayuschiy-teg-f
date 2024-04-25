@@ -1,7 +1,7 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
     /* шрифт */
-    --aсcent-font: 'PressStart2P-Regular';
+    --aсcent-font: 'PressStart2P';
     --main-font: 'Inter-Variable';
     --font-weight-title: 700;
     --font-weight-content: 400;

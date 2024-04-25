@@ -14,25 +14,25 @@
 */
 @keyframes arrow_element {
     from {
-        transform: translate(0);
+        transform: translateX(0);
     }
       to {
-        transform: translate(4px);
+        transform: translateX(4px);
     }
 }
 
-.like-icon .heart {
-    transform-origin: center center;
-    transition: fill 0.1s;
+@keyframes underline {
+    from {
+        inline-size: 0%;
+    }
+    to {
+        inline-size: calc(100% - 25px);
+    }
 }
 
 .like-icon .contour {
     fill: var(--accent-color);
-}
-
-.like-icon .sparks {
-    opacity: 0;
-    fill: var(--fill__sparks-color);
+    transition: fill 0.1s linear;;
 }
 
 .like-icon .main-body {
@@ -41,61 +41,84 @@
 }
 
 .like-icon .core {
-    fill: var(--background-color);
-    transition: fill 0.3s 0.05s;
+    fill: transparent;
+    transition: fill 0.3s linear;
+    transition-delay: 0.03s;
+}
+
+.like-icon.is-liked .sparks {
+    animation: animation-sparks 0.3s ease-in 0.3s;
+}
+
+.like-icon .sparks  {
+    opacity: 0;
 }
 
 .like-icon:hover .core {
     fill: var(--fill__core-color);
+    transition: fill 0.3s linear;
 }
 
 .like-icon:hover .main-body {
-    fill: var(--accent-color);
+    fill: var(--fill__core-color);
+    transition: fill 0.3s linear;
+    transition-delay: 0.05s;
 }
 
 .like-icon:active .main-body {
     fill: var(--fill__sparks-color);
-}
-  
-.like-icon:active .core {
-    fill: var(--fill__sparks-color);
+    transition: fill 0.3s linear;
+    transition-delay: 0.05s;
 }
 
-.like-icon.is-liked .contour {
+.like-icon:active .core {
     fill: var(--fill__sparks-color);
+    transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .core {
     fill: var(--fill__sparks-color);
+    transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .main-body {
     fill: var(--fill__sparks-color);
+    transition: fill 0.3s linear;
+    transition-delay: 0.05s;
+}
+
+.like-icon.is-liked .contour {
+    fill: var(--fill__sparks-color);
+    transition: fill 0.3s linear;
+    transition-delay: 0.06s;
 }
 
 .like-icon.is-liked .heart {
-    animation: animation-scale 0.3s 0.1s 1 alternate ease-in;
-}
-  
-.like-icon.is-liked .sparks {
-    animation: animation-sparks 0.3s 0.3s 1 alternate ease-in;
+    animation: animation-scale 0.3s 0.1s ease-in;
+    transform-origin: center center;
 }
 
 @keyframes animation-scale {
-    from {
-        scale: 1;
+    0% {
+        transform: scale(1);
     }
-    to {
-        scale: 1.5;
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
     }
 }
   
 @keyframes animation-sparks {
-    from {
+    0% {
         opacity: 0;
     }
-    to {
+    50% {
         opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
   

@@ -6,7 +6,7 @@
 */
 :root.theme-dark {
     /* шрифт */
-    --aсcent-font: 'PressStart2P-Regular';
+    --aсcent-font: 'PressStart2P';
     --main-font: 'Inter-Variable';
     --font-weight-title: 785;
     --font-weight-content: 465;
@@ -31,7 +31,7 @@
   
 :root.theme-light {
     /* шрифт */
-    --aсcent-font: 'PressStart2P-Regular';
+    --aсcent-font: 'PressStart2P';
     --main-font: 'Inter-Variable';
     --font-weight-title: 700;
     --font-weight-content: 400;
@@ -54,3 +54,29 @@
     --background__heart-color: #000;
 }
 
+@media (prefers-color-scheme: dark) {
+    :root {
+         /* шрифт */
+    --aсcent-font: 'PressStart2P';
+    --main-font: 'Inter-Variable';
+    --font-weight-title: 785;
+    --font-weight-content: 465;
+    /* фон */
+    --background-color: #000;
+    --accent-color: #00CC14;
+    /* градиентый фон */
+    --background-image: repeating-linear-gradient(to right, #000, #000 2px, transparent 2px, transparent 4px),
+    repeating-linear-gradient(to bottom, #000, #000 2px, transparent 2px, transparent 4px),
+    linear-gradient(to bottom, #007f0c, #004306);
+    /* лейбл */
+    --accent-color-transparency: rgb(0 204 20 / 60%);
+    --color-shadow: #000;
+
+    --button__text-color: #00CC14;
+    --floppy-color: #00CC14;
+    --fill__sparks-color: #FF0000;
+    --fill__contour-color: #00CC14;
+    --fill__core-color: #00CC14;
+    --background__heart-color: #00CC14;
+    }
+}
