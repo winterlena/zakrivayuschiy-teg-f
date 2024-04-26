@@ -94,7 +94,6 @@
 
 .theme-menu__button:hover {
   opacity: 0.6;
-  transition: opacity 0.3s ease;
 }
 
 .theme-menu__button:focus {
@@ -132,7 +131,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 49px;
   inline-size: clamp(23.4375rem, 16.2852rem + 30.5164vw, 43.75rem);
 }
 
@@ -253,7 +251,6 @@
 .button__text {
   mix-blend-mode: difference;
   color: var(--button__text-color);
-  text-transform: uppercase;
 }
 
 .card__save-button {
@@ -302,7 +299,10 @@
   border: 2px solid var(--accent-color);
   padding: 30px;
   gap: 30px;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  z-index: 3;
 }
 
 dialog::backdrop {
@@ -321,9 +321,9 @@ dialog::backdrop {
   gap: 20px;
 }
 
-.dialog .floppy {
-  width: 39px;
-  height: 39px;
+.dialog__container .floppy {
+  width: 40px;
+  height: 40px;
   mix-blend-mode: normal;
 }
 
@@ -332,6 +332,10 @@ dialog::backdrop {
   max-width: 234px;
   width: 100%;
   line-height: 1.5;
+}
+
+.dialog .button__text {
+  text-transform: uppercase;
 }
 
 .ok__button {
@@ -378,5 +382,12 @@ dialog::backdrop {
   .card__save-button .floppy {
     width: 28px;
     height: 28px;
+  }
+  .dialog {
+    padding: 30px 40px;
+  }
+  .dialog__container {
+    display: grid;
+    grid-template-columns: min-content 1fr;
   }
 }
